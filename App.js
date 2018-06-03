@@ -6,13 +6,16 @@
 
 import React, { Component } from 'react';
 import {
-    Platform
+    Platform,
+    YellowBox
 } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import Home from './src/screens/Home';
 import NewGame from './src/screens/NewGame';
 import Stats from './src/screens/Stats';
-import { YellowBox } from 'react-native';
+import reducer from './src/reducer'
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader', 'Class RCTCxxModule']);
 
@@ -27,11 +30,15 @@ const AppNavigator = createStackNavigator(
     }
 );
 
+const store = createStore(reducer);
+
 type Props = {};
 export default class App extends Component<Props> {
     render() {
         return (
-            <AppNavigator />
+            <Provider store={store}>
+                <AppNavigator />
+            </Provider>
         );
     }
 }

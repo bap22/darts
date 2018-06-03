@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { addItem } from '../services/FirebaseService';
+import KeyBoard from "../components/ScoreKeyboardComponent";
 
 export default class Game extends Component {
     constructor(props) {
@@ -50,6 +51,7 @@ export default class Game extends Component {
                         SAVE
                     </Text>
                 </TouchableHighlight>
+                <KeyBoard />
                 
             </View>
         )
