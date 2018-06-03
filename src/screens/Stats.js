@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import StatsComponent from '../components/StatsComponent';
 import { db } from '../config/db';
 
-let dataRef = db.ref('/test-items');
+let dataRef = db.ref('/games/p1');
 
 export default class Stats extends Component {
     state = {

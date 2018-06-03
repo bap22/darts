@@ -1,7 +1,7 @@
 import { db } from '../config/db';
 
-export const addItem =  (item) => {
-    db.ref('/test-items').push({
-        name: item
+export const saveToFirebase =  (player, score) => {
+    db.ref('/games/' + player).push({
+        turn: score
     });
 }

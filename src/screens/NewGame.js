@@ -9,34 +9,43 @@ import {
     AlertIOS
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { addItem } from '../services/FirebaseService';
+import { saveToFirebase } from '../services/FirebaseService';
 import KeyBoard from "../components/ScoreKeyboardComponent";
+
+// const mapStateToProps = state => ({
+//     error: state.error,
+//     currentScore: state.currentScore,
+//     currentPlayer: state.currentPlayer
+// });
 
 export default class Game extends Component {
     constructor(props) {
         super(props);
         this.state = {
             name: '',
+            score: 0,
             error: false
         }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleChange = this.handleChange.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
     }
-    handleChange(e) {
-        this.setState({
-            name: e.nativeEvent.text
-        });
-    }
-    handleSubmit() {
-        addItem(this.state.name);
-        AlertIOS.alert(
-            'Saved successfully to FireBase'
-        );
-    }
+    // handleChange(e) {
+    //     this.setState({
+    //         name: e.nativeEvent.text
+    //     });
+    // }
+    // handleSubmit() {
+    //     saveToFirebase(this.state.name);
+    //     AlertIOS.alert(
+    //         'Saved successfully to FireBase'
+    //     );
+    // }
+
     render() {
         return (
             <View style={styles.main}>
-                <Text style={styles.title}>Save something to firebase</Text>
+            {this.state.score}
+                {/* <Text style={styles.title}>Save something to firebase</Text>
                 <TextInput
                     style={styles.itemInput}
                     onChange={this.handleChange}
@@ -50,7 +59,7 @@ export default class Game extends Component {
                         style={styles.buttonText}>
                         SAVE
                     </Text>
-                </TouchableHighlight>
+                </TouchableHighlight> */}
                 <KeyBoard />
                 
             </View>
